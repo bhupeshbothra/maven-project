@@ -25,7 +25,18 @@ pipeline {
                 }
 
                 build job: 'Deploy-to-Production'
+            } 
+			steps {
+				post {
+                success {
+                    echo 'Code deployed to Production.'
+                }
+
+                failure {
+                    echo ' Deployment failed.'
+                }
             }
+			}
         }
            
 
