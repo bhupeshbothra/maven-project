@@ -25,14 +25,6 @@ pipeline {
                 }
 
                 build job: 'Deploy-to-Production'
-            } post {
-                success {
-                    echo 'Code deployed to Production.'
-                }
-
-                failure {
-                    echo ' Deployment failed.'
-                }
             }
         }
            
