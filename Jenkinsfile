@@ -24,9 +24,8 @@ pipeline {
                     input message:'Approve PRODUCTION Deployment?'
                 }
 
-                build job: 'Deploy-to-Prod'
-            }
-            post {
+                build job: 'Deploy-to-Production'
+            } post {
                 success {
                     echo 'Code deployed to Production.'
                 }
@@ -36,6 +35,7 @@ pipeline {
                 }
             }
         }
+           
 
 
     }
