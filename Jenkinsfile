@@ -13,18 +13,24 @@ pipeline {
             }
         } 
         stage ('Deploy to Staging'){
-            steps {
+
+            steps{
+                set CATALINA_HOME="C:\Software\apache-tomcat-9.0.5\apache-tomcat-9.0.5 - Stage\webapps"
+                copy **/target/*.war %CATALINA_HOME%\webapps
+            }
+   /*         steps {
                 build job: 'Deploy-to-staging'
+                
             }
             post {
                 success {
                     echo 'Now Archiving...'
-                    archiveArtifacts artifacts: '**/*.war'
+                    archiveArtifacts artifacts: '**.war'
                 }
-            }
+            }*/
         }
 
-         stage ('Deploy to Production'){
+      /*    stage ('Deploy to Production'){
             steps{
                 timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
@@ -42,5 +48,5 @@ pipeline {
                     }
                 }     
             }
-        }
+        } */
 }
