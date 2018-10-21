@@ -15,8 +15,9 @@ pipeline {
         stage ('Deploy to Staging'){
 
             steps{
-                set CATALINA_HOME="C:\Software\apache-tomcat-9.0.5\apache-tomcat-9.0.5 - Stage\webapps"
+                set CATALINA_HOME="C:\Software\apache-tomcat-9.0.5\apache-tomcat-9.0.5 - Stage"
                 copy **/target/*.war %CATALINA_HOME%\webapps
+
             }
    /*         steps {
                 build job: 'Deploy-to-staging'
