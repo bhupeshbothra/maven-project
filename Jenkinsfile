@@ -16,7 +16,7 @@ pipeline {
 
             steps{
                 set CATALINA_HOME="C:\\Software\\apache-tomcat-9.0.5\\apache-tomcat-9.0.5 - Stage"
-                copy **/target/*.war %CATALINA_HOME%\\webapps
+                copy **/target/*.war %CATALINA_HOME%\webapps
 
             }
    /*         steps {
